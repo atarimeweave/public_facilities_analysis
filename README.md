@@ -167,5 +167,61 @@ HPのオープンデータいの中身をいくつか見てみると、多くが
 
 
 
+\## 今後の課題
 
+公民館に関するデータ収集の目的で集めていた元データに、公民館に関する記載がなかったり（無線LANは公民館にあるとHPに記載されていたが、無線LANのオープンデータには情報がなかった）、扱いきれなかった特徴量も分析中に存在した。
+
+与えられたデータのみで分析を進めるならば、データを収集する際は中身も確認すること、扱いたい特徴量をリストアップし優先順位を決めて作業することが必要。
+
+
+
+\## Repository構成
+
+```text
+
+data/ 
+
+├─ raw/ 
+
+├─ processed/
+
+sql/ 
+
+├─ 01\_create\_cleaned\_table.sql 
+
+├─ 02\_rename\_columns.sql 
+
+├─ 03\_extract\_area\_name.sql
+
+├─ 03\_extract\_area\_name\_population.sql
+
+├─ 04\_join\_facilities\_nearest\_housing.sql.sql
+
+├─ 04\_sum\_by\_area\_population.sql
+
+├─ 05\_create\_csv\_analysis\_data.sql
+
+├─ 05\_create\_csv\_analysis\_data\_by\_area.sql
+
+notebooks/ 
+
+├─ 01\_public\_facilities\_analysis.ipynb 
+
+├─ 02\_area\_analysis.ipynb 
+
+└─ 03\_public\_facilities\_scale\_analysis.ipynb 
+
+output/ 
+
+├─ area/
+
+├─ cluster/
+
+├─ public\_facilities/
+
+├─ public\_facilities\_scale/ 
+
+README.md
+
+```
 
