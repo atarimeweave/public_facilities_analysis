@@ -16,10 +16,6 @@
 
 \---
 
-
-
-\---
-
 \## 背景
 
 大規模都市ではデータが多い分、オープンデータも豊富であることは予測可能であるが、地方都市でも専用HPにてオープンデータが整理されて公開されていることが確認できた。
@@ -53,21 +49,21 @@ HPのオープンデータいの中身をいくつか見てみると、多くが
 
 独自収集データ - 公民館の貸出可能部屋数
 
-\---
+\---		
 
 \## 分析手順
 
 1. データ確認 (SQL)
-* カラム確認		(必要カラム抽出)
-* カラム名変更		(英語表記に変更)
-* 地域名の整備		(住所から地域名のみを抽出)
-* 距離計算			(公民館と各市営住宅の距離を算出し、一番近い市営住宅と紐づけ)
-* 地域名を丸める	(「丁目」などの地域を地域名でまとめ、人口を集計)
+-  カラム確認		(必要カラム抽出)
+- カラム名変更		(英語表記に変更)
+- 地域名の整備		(住所から地域名のみを抽出)
+- 距離計算			(公民館と各市営住宅の距離を算出し、一番近い市営住宅と紐づけ)
+- 地域名を丸める	(「丁目」などの地域を地域名でまとめ、人口を集計)
 2. データ結合 (SQL)
-* 地域名をキーとして公民館（市営住宅と紐づけ済み）と人口データを結合
+- 地域名をキーとして公民館（市営住宅と紐づけ済み）と人口データを結合
 3. 分析 (Python:jupyter notebook)
-* 公民館を軸に集計、可視化
-* 地域を軸に集計、可視化、クラスター分析
+- 公民館を軸に集計、可視化
+- 地域を軸に集計、可視化、クラスター分析
 4. 属性情報を追加して分析 (Python:jupyter notebook)
 * 各公民館のHPより貸出可能な部屋数を収集、施設規模の指標として追加
 * 再び公民館を軸に、貸出可能部屋数と各情報との関係性を確認
@@ -175,14 +171,6 @@ HPのオープンデータいの中身をいくつか見てみると、多くが
 
 \---
 
-\## noteリンク
-
-分析ストーリー、思考ログ
-
-https://note.com/atarimeweave/m/mc4fe6a0e5bfa
-
-\---
-
 \## Repository構成
 
 ```text
@@ -195,29 +183,29 @@ data/
 
 sql/ 
 
-├─ 01\\\_create\\\_cleaned\\\_table.sql 
+├─ 01\_create\_cleaned\_table.sql 
 
-├─ 02\\\_rename\\\_columns.sql 
+├─ 02\_rename\_columns.sql 
 
-├─ 03\\\_extract\\\_area\\\_name.sql
+├─ 03\_extract\_area\_name.sql
 
-├─ 03\\\_extract\\\_area\\\_name\\\_population.sql
+├─ 03\_extract\_area\_name\_population.sql
 
-├─ 04\\\_join\\\_facilities\\\_nearest\\\_housing.sql.sql
+├─ 04\_join\_facilities\_nearest\_housing.sql.sql
 
-├─ 04\\\_sum\\\_by\\\_area\\\_population.sql
+├─ 04\_sum\_by\_area\_population.sql
 
-├─ 05\\\_create\\\_csv\\\_analysis\\\_data.sql
+├─ 05\_create\_csv\_analysis\_data.sql
 
-├─ 05\\\_create\\\_csv\\\_analysis\\\_data\\\_by\\\_area.sql
+├─ 05\_create\_csv\_analysis\_data\_by\_area.sql
 
 notebooks/ 
 
-├─ 01\\\_public\\\_facilities\\\_analysis.ipynb 
+├─ 01\_public\_facilities\_analysis.ipynb 
 
-├─ 02\\\_area\\\_analysis.ipynb 
+├─ 02\_area\_analysis.ipynb 
 
-└─ 03\\\_public\\\_facilities\\\_scale\\\_analysis.ipynb 
+└─ 03\_public\_facilities\_scale\_analysis.ipynb 
 
 output/ 
 
@@ -225,9 +213,9 @@ output/
 
 ├─ cluster/
 
-├─ public\\\_facilities/
+├─ public\_facilities/
 
-├─ public\\\_facilities\\\_scale/ 
+├─ public\_facilities\_scale/ 
 
 README.md
 
